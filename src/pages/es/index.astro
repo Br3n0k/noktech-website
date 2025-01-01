@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Services from '../../components/Services.astro';
+import Portfolio from '../../components/Portfolio.astro';
+import About from '../../components/About.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import ServiceIcon from '../../components/icons/ServiceIcon.astro';
+import FooterIcon from '../../components/icons/FooterIcon.astro';
+import ContactIcon from '../../components/icons/ContactIcon.astro';
+import { getLanguageFromURL, useTranslations } from '../../i18n/utils';
+
+const currentPath = Astro.url.pathname;
+const lang = getLanguageFromURL(currentPath);
+const t = useTranslations(lang);
+---
+
+<Layout 
+  title={t('site.title')}
+  description={t('site.description')}
+>
+  <div class="flex flex-col min-h-screen">
+    <Header />
+    
+    <main class="flex-grow">
+      <!-- Secciones principales -->
+      <div class="fade-in">
+        <Hero />
+      </div>
+
+      <div class="fade-in">
+        <Services />
+      </div>
+
+      <div class="fade-in">
+        <Portfolio />
+      </div>
+
+      <div class="fade-in">
+        <About />
+      </div>
+
+      <div class="fade-in">
+        <Contact />
+      </div>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<script>
+  // Intersection Observer para animaciones de fade-in
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fade-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observa todos los elementos con la clase fade-in
+  document.querySelectorAll('.fade-in').forEach((element) => {
+    observer.observe(element);
+  });
+
+  // Desplazamiento suave para enlaces internos
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      if (!href) return;
+      
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      // Actualiza la URL sin recargar la página
+      history.pushState(null, '', href);
+    });
+  });
+</script>
+
+<style>
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style> 

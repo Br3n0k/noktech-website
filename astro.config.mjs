@@ -1,15 +1,21 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
+import compress from 'astro-compress';
 
 export default defineConfig({
-  output: 'static',
   site: 'https://noktech.com.br',
-  integrations: [tailwind()],
-  i18n: {
-    defaultLocale: 'pt-BR',
-    locales: ['pt-BR', 'en'],
-    routing: {
-      prefixDefaultLocale: false
+  integrations: [
+    tailwind(),
+    sitemap(),
+    compress()
+  ],
+  build: {
+    assets: '_assets'
+  },
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
     }
   }
 }); 

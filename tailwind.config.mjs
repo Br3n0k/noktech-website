@@ -7,41 +7,35 @@ export default {
         primary: {
           DEFAULT: '#FF0000',
           dark: '#CC0000',
-          light: '#FF3333',
-          900: '#7F0000',
-          800: '#990000',
-          700: '#B30000',
-          600: '#CC0000',
-          500: '#FF0000',
-          400: '#FF3333',
-          300: '#FF6666'
+          light: '#FF3333'
         },
         dark: {
           DEFAULT: '#0A0A0A',
-          light: '#121212',
-          lighter: '#181818',
-          card: '#1C1C1C',
-          border: '#2A2A2A'
-        },
-        accent: {
-          DEFAULT: '#FF3333',
-          dark: '#CC0000'
+          light: '#1A1A1A',
+          lighter: '#2A2A2A',
+          card: '#151515',
+          border: '#333333'
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Cal Sans', 'Inter', 'system-ui', 'sans-serif']
+        sans: ['Inter var', 'system-ui', 'sans-serif']
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'grid-pattern': "url('/grid-pattern.svg')",
-        'hero-gradient': 'linear-gradient(to bottom right, rgba(255, 0, 0, 0.1), rgba(0, 0, 0, 0.9))'
+      animation: {
+        'fade-in': 'fadeIn 0.6s ease-out forwards',
+        'gradient-text': 'gradientText 4s linear infinite'
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        gradientText: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' }
+        }
       }
     }
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/forms')
-  ]
-} 
+  plugins: []
+}; 

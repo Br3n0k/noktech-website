@@ -1,0 +1,77 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "w-64 h-64" } = Astro.props;
+---
+
+<svg viewBox="0 0 200 200" class={className}>
+  <!-- Círculo externo com gradiente -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#circleGradient)" stroke-width="2" />
+  
+  <!-- Hexágono central -->
+  <path 
+    d="M150 100 L125 156.7 L75 156.7 L50 100 L75 43.3 L125 43.3 Z" 
+    fill="none" 
+    stroke="currentColor" 
+    stroke-width="2"
+    class="text-primary"
+  />
+  
+  <!-- Pontos de conexão -->
+  <circle cx="150" cy="100" r="4" class="fill-primary" />
+  <circle cx="125" cy="156.7" r="4" class="fill-primary" />
+  <circle cx="75" cy="156.7" r="4" class="fill-primary" />
+  <circle cx="50" cy="100" r="4" class="fill-primary" />
+  <circle cx="75" cy="43.3" r="4" class="fill-primary" />
+  <circle cx="125" cy="43.3" r="4" class="fill-primary" />
+  
+  <!-- Linhas de conexão animadas -->
+  <g class="connection-lines">
+    <line x1="150" y1="100" x2="125" y2="43.3" class="stroke-primary" stroke-width="1" />
+    <line x1="125" y1="43.3" x2="75" y2="43.3" class="stroke-primary" stroke-width="1" />
+    <line x1="75" y1="43.3" x2="50" y2="100" class="stroke-primary" stroke-width="1" />
+    <line x1="50" y1="100" x2="75" y2="156.7" class="stroke-primary" stroke-width="1" />
+    <line x1="75" y1="156.7" x2="125" y2="156.7" class="stroke-primary" stroke-width="1" />
+    <line x1="125" y1="156.7" x2="150" y2="100" class="stroke-primary" stroke-width="1" />
+  </g>
+  
+  <!-- Gradientes -->
+  <defs>
+    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" class="text-primary" stop-opacity="0.5" />
+      <stop offset="100%" class="text-primary" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+</svg>
+
+<style>
+  .connection-lines line {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: dash 3s linear infinite;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .connection-lines line:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  .connection-lines line:nth-child(3) {
+    animation-delay: 1s;
+  }
+  .connection-lines line:nth-child(4) {
+    animation-delay: 1.5s;
+  }
+  .connection-lines line:nth-child(5) {
+    animation-delay: 2s;
+  }
+  .connection-lines line:nth-child(6) {
+    animation-delay: 2.5s;
+  }
+</style> 

@@ -1,0 +1,37 @@
+---
+interface Props {
+  type: 'image' | 'text' | 'title' | 'tag';
+  width?: string;
+  height?: string;
+}
+
+const { type, width = 'full', height = '16' } = Astro.props;
+---
+
+<div class={`animate-pulse bg-dark-lighter rounded-lg ${
+  type === 'image' ? 'h-64 w-full' :
+  type === 'title' ? 'h-8 w-3/4' :
+  type === 'tag' ? 'h-6 w-24 rounded-full' :
+  'h-4 w-full'
+}`}>
+  <div class="h-full w-full bg-gradient-to-r from-dark-lighter via-dark-card to-dark-lighter background-animate"></div>
+</div>
+
+<style>
+  .background-animate {
+    background-size: 200% 200%;
+    animation: gradient 2s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style> 

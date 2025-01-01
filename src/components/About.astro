@@ -1,0 +1,68 @@
+---
+import { getLanguageFromURL, useTranslations } from '../i18n/utils';
+
+const currentPath = Astro.url.pathname;
+const lang = getLanguageFromURL(currentPath);
+const t = useTranslations(lang);
+---
+
+<section id="about" class="relative py-20 overflow-hidden">
+  <!-- Grid Pattern Background -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+
+  <!-- Gradient Orbs -->
+  <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary/30 rounded-full filter blur-3xl opacity-20"></div>
+  <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/30 rounded-full filter blur-3xl opacity-20"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center mb-12">
+      <span class="text-primary font-medium">{t('about.label')}</span>
+      <h2 class="text-4xl font-bold mt-2">{t('about.heading')}</h2>
+      <p class="text-gray-400 mt-4 max-w-3xl mx-auto">{t('about.subheading')}</p>
+    </div>
+
+    <!-- Descrição Principal -->
+    <div class="max-w-4xl mx-auto mb-16">
+      <p class="text-gray-300 leading-relaxed text-lg">{t('about.description')}</p>
+    </div>
+
+    <!-- Missão -->
+    <div class="bg-dark-lighter p-8 rounded-2xl border border-dark-border mb-16">
+      <p class="text-gray-300 leading-relaxed text-lg italic">{t('about.mission')}</p>
+    </div>
+
+    <!-- Nossa Abordagem -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold mb-6 text-center">{t('about.approach.title')}</h3>
+      <div class="bg-dark-lighter p-8 rounded-2xl border border-dark-border">
+        <p class="text-gray-300 leading-relaxed">{t('about.approach.description')}</p>
+      </div>
+    </div>
+
+    <!-- Nossos Valores -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold mb-6 text-center">{t('about.values.title')}</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {t('about.values.items').map((value: any) => (
+          <div class="bg-dark-lighter p-6 rounded-xl border border-dark-border hover:border-primary/50 transition-colors">
+            <h4 class="text-xl font-semibold mb-3 text-primary">{value.title}</h4>
+            <p class="text-gray-300">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Áreas de Expertise -->
+    <div>
+      <h3 class="text-2xl font-bold mb-6 text-center">{t('about.expertise.title')}</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {t('about.expertise.items').map((item: any) => (
+          <div class="bg-dark-lighter p-8 rounded-2xl border border-dark-border hover:border-primary/50 transition-colors">
+            <h4 class="text-xl font-semibold mb-4 text-primary">{item.title}</h4>
+            <p class="text-gray-300 leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section> 

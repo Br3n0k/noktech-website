@@ -1,0 +1,119 @@
+{
+  "site": {
+    "title": "NokTech - Desenvolvimento de Software e Consultoria em TI",
+    "description": "Desenvolvemos soluções tecnológicas inovadoras para impulsionar seu negócio. Especialistas em desenvolvimento web, software personalizado e consultoria em TI."
+  },
+  "nav": {
+    "home": "Início",
+    "services": "Serviços",
+    "portfolio": "Portfólio",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Transformando Ideias em Soluções Digitais",
+    "subtitle": "Desenvolvimento de software personalizado e consultoria em TI para impulsionar seu negócio",
+    "cta": "Comece seu projeto"
+  },
+  "services": {
+    "label": "Nossos Serviços",
+    "heading": "Soluções Completas em Tecnologia",
+    "subheading": "Oferecemos serviços especializados para atender às necessidades do seu negócio",
+    "web": {
+      "title": "Desenvolvimento Web",
+      "description": "Criamos websites e aplicações web modernas e responsivas",
+      "features": [
+        "Sites institucionais",
+        "E-commerce",
+        "Sistemas web",
+        "Landing pages"
+      ]
+    },
+    "software": {
+      "title": "Software Personalizado",
+      "description": "Desenvolvemos soluções sob medida para sua empresa",
+      "features": [
+        "Automação de processos",
+        "Sistemas de gestão",
+        "Integrações de sistemas",
+        "APIs e microsserviços"
+      ]
+    },
+    "consulting": {
+      "title": "Consultoria em TI",
+      "description": "Orientamos seu negócio nas melhores práticas e tecnologias",
+      "features": [
+        "Análise de sistemas",
+        "Arquitetura de software",
+        "Segurança da informação",
+        "Transformação digital"
+      ]
+    },
+    "cta": "Saiba mais"
+  },
+  "portfolio": {
+    "label": "Portfólio",
+    "heading": "Nossos Projetos",
+    "subheading": "Conheça alguns dos projetos que desenvolvemos",
+    "visitSite": "Visitar site",
+    "pecfort": {
+      "description": "E-commerce especializado em produtos agropecuários",
+      "features": [
+        "Plataforma de e-commerce completa",
+        "Sistema de gestão de pedidos",
+        "Integração com fornecedores",
+        "Painel administrativo personalizado"
+      ]
+    },
+    "oxxen": {
+      "description": "Marketplace de certificação digital",
+      "features": [
+        "Sistema de agendamento online",
+        "Integração com certificadoras",
+        "Gestão de validadores",
+        "Dashboard analítico"
+      ]
+    }
+  },
+  "contact": {
+    "label": "Contato",
+    "heading": "Vamos Conversar",
+    "subheading": "Entre em contato conosco para discutir seu projeto",
+    "info": {
+      "title": "Informações de Contato",
+      "email": {
+        "label": "E-mail",
+        "value": "br3n0k@gmail.com"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "value": "(62) 99159-8979"
+      },
+      "location": {
+        "label": "Localização",
+        "value": "Goiânia, GO"
+      }
+    },
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "Digite seu nome",
+      "email": "E-mail",
+      "emailPlaceholder": "Digite seu e-mail",
+      "message": "Mensagem",
+      "messagePlaceholder": "Digite sua mensagem",
+      "submit": "Enviar Mensagem"
+    }
+  },
+  "footer": {
+    "description": "Desenvolvemos soluções tecnológicas inovadoras para impulsionar seu negócio",
+    "quickLinks": "Links Rápidos",
+    "contact": "Contato",
+    "rights": "Todos os direitos reservados"
+  },
+  "thanks": {
+    "title": "Obrigado pelo contato - NokTech",
+    "heading": "Mensagem Enviada com Sucesso!",
+    "message": "Agradecemos seu contato! Em breve nossa equipe entrará em contato com você. Se preferir uma resposta mais rápida, você pode nos chamar diretamente no WhatsApp.",
+    "backHome": "Voltar para o Início",
+    "whatsapp": "Chamar no WhatsApp"
+  }
+} 

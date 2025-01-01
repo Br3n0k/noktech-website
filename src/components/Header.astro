@@ -1,81 +1,203 @@
 ---
 import { getLanguageFromURL, useTranslations } from '../i18n/utils';
-import LanguageSelector from './LanguageSelector.astro';
 
 const currentPath = Astro.url.pathname;
 const lang = getLanguageFromURL(currentPath);
 const t = useTranslations(lang);
+
+const navItems = [
+  { href: '#home', label: t('nav.home') },
+  { href: '#services', label: t('nav.services') },
+  { href: '#portfolio', label: t('nav.portfolio') },
+  { href: '#about', label: t('nav.about') },
+  { href: '#contact', label: t('nav.contact') }
+];
+
+const languages = [
+  { code: 'pt', name: 'Português', flag: '/images/flags/br.svg' },
+  { code: 'en', name: 'English', flag: '/images/flags/us.svg' },
+  { code: 'es', name: 'Español', flag: '/images/flags/es.svg' }
+];
+
+function getLanguagePath(langCode: string) {
+  const basePath = currentPath.replace(/^\/(pt|en|es)\//, '/');
+  return `/${langCode}${basePath}`;
+}
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-sm border-b border-dark-border">
-  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-    <div class="flex items-center">
-      <a href="/" class="flex items-center">
-        <img 
-          src="/images/logo.png" 
-          alt="NokTech Logo" 
-          class="h-8 md:h-10 w-auto transform hover:scale-105 transition-transform duration-300"
-          width="120"
-          height="40"
-        />
+<header class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-lg border-b border-dark-border">
+  <div class="container mx-auto px-4">
+    <nav class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center group">
+        <span class="text-3xl md:text-4xl font-black tracking-wider logo-text">
+          <span class="text-white glitch-effect" data-text="NOK">NOK</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light group-hover:from-primary-light group-hover:to-primary transition-all duration-300 tech-text">TECH</span>
+        </span>
       </a>
-    </div>
 
-    <nav class="hidden md:flex items-center space-x-8">
-      <a href="#services" class="text-gray-300 hover:text-primary transition-colors">
-        {t('nav.services')}
-      </a>
-      <a href="#portfolio" class="text-gray-300 hover:text-primary transition-colors">
-        {t('nav.portfolio')}
-      </a>
-      <a href="#about" class="text-gray-300 hover:text-primary transition-colors">
-        {t('nav.about')}
-      </a>
-      <a href="#contact" 
-         class="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,0,0,0.3)]">
-        {t('nav.contact')}
-      </a>
+      <!-- Links de Navegação -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class="text-gray-300 hover:text-primary transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Seletor de Idiomas -->
+      <div class="relative group">
+        <button class="flex items-center space-x-2 text-gray-300 hover:text-primary transition-colors p-2 rounded-lg hover:bg-dark-lighter">
+          <img
+            src={languages.find(l => l.code === lang)?.flag}
+            alt={languages.find(l => l.code === lang)?.name}
+            class="w-5 h-5 rounded-sm object-cover"
+          />
+          <span class="text-sm font-medium">{languages.find(l => l.code === lang)?.code.toUpperCase()}</span>
+          <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <!-- Menu Dropdown -->
+        <div class="absolute right-0 mt-2 w-48 py-2 bg-dark-lighter rounded-lg shadow-xl border border-dark-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          {languages.map(language => (
+            <a
+              href={getLanguagePath(language.code)}
+              class={`flex items-center space-x-3 px-4 py-2 text-sm text-gray-300 hover:text-primary hover:bg-dark/50 transition-colors ${
+                language.code === lang ? 'bg-dark/30 text-primary' : ''
+              }`}
+            >
+              <img
+                src={language.flag}
+                alt={language.name}
+                class="w-5 h-5 rounded-sm object-cover"
+              />
+              <span>{language.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Menu Mobile -->
+      <button class="md:hidden text-gray-300 hover:text-primary transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
     </nav>
-
-    <button class="md:hidden text-white" id="mobile-menu-button">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div class="md:hidden hidden bg-dark-lighter border-t border-dark-border" id="mobile-menu">
-    <div class="container mx-auto px-4 py-4 space-y-4">
-      <a href="#services" class="block text-gray-300 hover:text-primary transition-colors">
-        {t('nav.services')}
-      </a>
-      <a href="#portfolio" class="block text-gray-300 hover:text-primary transition-colors">
-        {t('nav.portfolio')}
-      </a>
-      <a href="#about" class="block text-gray-300 hover:text-primary transition-colors">
-        {t('nav.about')}
-      </a>
-      <a href="#contact" class="block text-gray-300 hover:text-primary transition-colors">
-        {t('nav.contact')}
-      </a>
-    </div>
   </div>
 </header>
 
 <script>
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  // Lógica para o menu mobile
+  const menuButton = document.querySelector('button.md\\:hidden');
+  const navLinks = document.querySelector('.md\\:flex');
 
-  mobileMenuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+  menuButton?.addEventListener('click', () => {
+    navLinks?.classList.toggle('hidden');
   });
+</script>
 
-  // Fechar menu ao clicar em um link
-  const mobileLinks = mobileMenu?.querySelectorAll('a');
-  mobileLinks?.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
-    });
-  });
-</script> 
+<style>
+  .logo-text {
+    position: relative;
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.2));
+  }
+
+  .glitch-effect {
+    position: relative;
+    animation: pulse 4s infinite;
+  }
+
+  .glitch-effect::before,
+  .glitch-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    text-shadow: 1px 0 #fff;
+    width: 100%;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+  }
+
+  .glitch-effect::before {
+    left: 2px;
+    text-shadow: -1px 0 #ff0000;
+    animation: glitch-anim-1 5s infinite linear alternate-reverse;
+  }
+
+  .glitch-effect::after {
+    left: -2px;
+    text-shadow: -1px 0 #00ff00;
+    animation: glitch-anim-2 1s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim-1 {
+    0% {
+      clip: rect(20px, 900px, 89px, 0);
+    }
+    20% {
+      clip: rect(89px, 900px, 129px, 0);
+    }
+    40% {
+      clip: rect(129px, 900px, 20px, 0);
+    }
+    60% {
+      clip: rect(20px, 900px, 89px, 0);
+    }
+    80% {
+      clip: rect(89px, 900px, 129px, 0);
+    }
+    100% {
+      clip: rect(129px, 900px, 20px, 0);
+    }
+  }
+
+  @keyframes glitch-anim-2 {
+    0% {
+      clip: rect(129px, 900px, 20px, 0);
+    }
+    20% {
+      clip: rect(20px, 900px, 89px, 0);
+    }
+    40% {
+      clip: rect(89px, 900px, 129px, 0);
+    }
+    60% {
+      clip: rect(129px, 900px, 20px, 0);
+    }
+    80% {
+      clip: rect(20px, 900px, 89px, 0);
+    }
+    100% {
+      clip: rect(89px, 900px, 129px, 0);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .tech-text {
+    position: relative;
+    animation: tech-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes tech-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+    }
+  }
+</style> 
