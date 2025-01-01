@@ -23,15 +23,15 @@ export const en = {
     },
     "stats": {
       "clients": {
-        "value": "6",
+        "value": "13",
         "label": "Satisfied Clients"
       },
       "projects": {
-        "value": "13",
+        "value": "18",
         "label": "Delivered Projects"
       },
       "years": {
-        "value": "8",
+        "value": "+10",
         "label": "Years of Experience"
       },
       "satisfaction": {
@@ -52,7 +52,48 @@ export const en = {
         "E-commerce",
         "Web systems",
         "Landing pages"
-      ]
+      ],
+      "details": {
+        "title": "Professional Web Development",
+        "description": "We develop complete web solutions, from corporate websites to complex systems, always focusing on performance, usability, and modern design. We use the latest technologies and frameworks to ensure that your online presence is not only beautiful but also functional and efficient.",
+        "benefits": [
+          "Responsive and modern design",
+          "Optimized performance",
+          "SEO friendly",
+          "Social media integration",
+          "Intuitive admin panel",
+          "Specialized technical support"
+        ],
+        "features": {
+          "frontend": {
+            "title": "Modern Frontend",
+            "items": [
+              "Responsive interfaces",
+              "Smooth animations",
+              "Performance optimization",
+              "Consistent design system"
+            ]
+          },
+          "backend": {
+            "title": "Robust Backend",
+            "items": [
+              "RESTful APIs",
+              "Optimized database",
+              "Smart caching",
+              "Advanced security"
+            ]
+          },
+          "design": {
+            "title": "UX/UI Design",
+            "items": [
+              "Custom design system",
+              "Interactive prototyping",
+              "Usability testing",
+              "WCAG accessibility"
+            ]
+          }
+        }
+      }
     },
     "api": {
       "title": "RESTful APIs",
@@ -113,7 +154,48 @@ export const en = {
         "Management systems",
         "System integrations",
         "APIs and microservices"
-      ]
+      ],
+      "details": {
+        "title": "Tailored Software for Your Business",
+        "description": "We develop custom software solutions that meet exactly your business needs. Our approach combines technical expertise with deep understanding of business processes, resulting in efficient and scalable systems that boost productivity and reduce costs.",
+        "benefits": [
+          "100% customized solution",
+          "Integration with existing systems",
+          "Guaranteed scalability",
+          "Dedicated technical support",
+          "Complete documentation",
+          "Team training"
+        ],
+        "features": {
+          "development": {
+            "title": "Development",
+            "items": [
+              "Scalable architecture",
+              "Clean and testable code",
+              "Secure versioning",
+              "Automated CI/CD"
+            ]
+          },
+          "quality": {
+            "title": "Quality",
+            "items": [
+              "Automated testing",
+              "Rigorous code review",
+              "Continuous monitoring",
+              "Quality metrics"
+            ]
+          },
+          "maintenance": {
+            "title": "Maintenance",
+            "items": [
+              "Regular updates",
+              "Automatic backup",
+              "24/7 monitoring",
+              "Priority support"
+            ]
+          }
+        }
+      }
     },
     "ai": {
       "title": "Artificial Intelligence",
@@ -145,7 +227,48 @@ export const en = {
         "Software architecture",
         "Information security",
         "Digital transformation"
-      ]
+      ],
+      "details": {
+        "title": "Strategic IT Consulting",
+        "description": "Our IT consulting offers specialized guidance to help your company make the best technology decisions. We analyze your current processes, identify improvement opportunities, and develop a strategic plan to implement the most suitable solutions for your business.",
+        "benefits": [
+          "Operational cost reduction",
+          "Process optimization",
+          "Enhanced information security",
+          "Data-driven decisions",
+          "Clear technology roadmap",
+          "Knowledge transfer"
+        ],
+        "features": {
+          "analysis": {
+            "title": "Analysis",
+            "items": [
+              "Technical diagnosis",
+              "Process analysis",
+              "Risk assessment",
+              "Gap identification"
+            ]
+          },
+          "strategy": {
+            "title": "Strategy",
+            "items": [
+              "Technology planning",
+              "Innovation roadmap",
+              "Change management",
+              "KPIs and metrics"
+            ]
+          },
+          "support": {
+            "title": "Support",
+            "items": [
+              "Technical mentoring",
+              "Team training",
+              "Process documentation",
+              "Continuous support"
+            ]
+          }
+        }
+      }
     },
     "cta": "Learn more"
   },
@@ -157,41 +280,33 @@ export const en = {
     "viewCode": "View code",
     "pecfort": {
       "description": "E-commerce specialized in agricultural products",
-      "features": [
-        "Complete e-commerce platform",
-        "Order management system",
-        "Supplier integration",
-        "Custom admin panel"
-      ]
+      "feature1": "Complete e-commerce platform",
+      "feature2": "Order management system",
+      "feature3": "Supplier integration",
+      "feature4": "Custom admin panel"
     },
     "oxxen": {
       "description": "Digital certification marketplace",
-      "features": [
-        "Online scheduling system",
-        "Certification authority integration",
-        "Validator management",
-        "Analytical dashboard"
-      ]
+      "feature1": "Online scheduling system",
+      "feature2": "Certification authority integration",
+      "feature3": "Validator management",
+      "feature4": "Analytical dashboard"
     },
     "noktech_deploy": {
       "title": "NokTech Deploy",
       "description": "Advanced and flexible deployment client with multi-protocol support",
-      "features": [
-        "SSH/SFTP, FTP and Local support",
-        "Real-time monitoring",
-        "User-friendly CLI",
-        "Detailed logs and versioning"
-      ]
+      "feature1": "SSH/SFTP, FTP and Local support",
+      "feature2": "Real-time monitoring",
+      "feature3": "User-friendly CLI",
+      "feature4": "Detailed logs and versioning"
     },
     "noktech_theliarcrow": {
       "title": "NokTech TheLiarCrow",
       "description": "LLM training model for personal assistant",
-      "features": [
-        "Natural language processing",
-        "Custom training",
-        "Python integration",
-        "Advanced data analysis"
-      ]
+      "feature1": "Natural language processing",
+      "feature2": "Custom training",
+      "feature3": "Python integration",
+      "feature4": "Advanced data analysis"
     }
   },
   "contact": {
@@ -243,6 +358,32 @@ export const en = {
     "heading": "Who We Are",
     "subheading": "Excellence and innovation in every line of code",
     "description": "NokTech is a boutique software house, founded by Brendown Ferreira, that since 2015 has stood out in the market for its unique approach to software development. Our philosophy is clear: we prefer to do less, but do it extraordinarily well. We are a lean and highly specialized team, which allows us to maintain exceptional control over the quality of each project we take on. We don't seek to be the biggest company, but rather the most reliable in our segment. Our methodology combines development best practices with truly personalized service, where each client receives dedicated attention and tailored solutions for their specific challenges.",
+    "mission": "Our mission is to develop innovative and high-quality technological solutions that truly make a difference for our clients. We seek not only to meet expectations but to exceed them through meticulous work committed to excellence.",
+    "approach": {
+      "title": "Our Approach",
+      "description": "We adopt an adaptive agile methodology that combines development best practices with customized processes for each project. Our focus is on delivering real value through technological solutions that truly solve problems."
+    },
+    "values": {
+      "title": "Our Values",
+      "items": [
+        {
+          "title": "Excellence",
+          "description": "Commitment to quality in every line of code"
+        },
+        {
+          "title": "Innovation",
+          "description": "Constant search for creative and efficient solutions"
+        },
+        {
+          "title": "Transparency",
+          "description": "Clear and honest communication in all interactions"
+        },
+        {
+          "title": "Responsibility",
+          "description": "Commitment to agreed deadlines and results"
+        }
+      ]
+    },
     "expertise": {
       "title": "Areas of Expertise",
       "items": [
@@ -256,39 +397,13 @@ export const en = {
         },
         {
           "title": "Infrastructure & DevOps",
-          "description": "Network management, server infrastructure, and database management"
+          "description": "Expertise in AWS, Docker, CI/CD, and modern DevOps practices"
         },
         {
-          "title": "Data Analysis",
-          "description": "Expertise in data analysis and processing for decision making"
+          "title": "Artificial Intelligence",
+          "description": "Development and integration of AI and Machine Learning solutions"
         }
       ]
-    },
-    "values": {
-      "title": "Our Values",
-      "items": [
-        {
-          "title": "Uncompromising Quality",
-          "description": "Every line of code goes through rigorous quality standards. We make no compromises when it comes to technical excellence."
-        },
-        {
-          "title": "Total Transparency",
-          "description": "We maintain clear and direct communication with our clients, sharing progress, challenges, and solutions in real-time."
-        },
-        {
-          "title": "Commitment to Results",
-          "description": "We focus on delivering real and measurable value, aligning our solutions with our clients' strategic objectives."
-        },
-        {
-          "title": "Constant Evolution",
-          "description": "We continuously invest in research and development, keeping ourselves at the forefront of emerging technologies."
-        }
-      ]
-    },
-    "mission": "Our mission is to develop exceptional technological solutions that not only meet our clients' current needs but also establish solid foundations for their future growth. We believe that well-built software is a strategic investment, and our commitment is to ensure that each project is developed with the technical excellence and attention to detail that have become our trademark.",
-    "approach": {
-      "title": "Our Approach",
-      "description": "We adopt a methodology that combines agility with precision. Each project is treated as unique, receiving personalized attention and a tailored development plan. Our lean team allows us to maintain exceptional control over quality, while our diverse experience enables us to face complex challenges with innovative and efficient solutions."
     }
   }
 }; 

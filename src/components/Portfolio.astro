@@ -5,121 +5,136 @@ const currentPath = Astro.url.pathname;
 const lang = getLanguageFromURL(currentPath);
 const t = useTranslations(lang);
 
-const getFeatures = (project: string) => {
-  return [
-    t(`portfolio.${project}.feature1`),
-    t(`portfolio.${project}.feature2`),
-    t(`portfolio.${project}.feature3`),
-    t(`portfolio.${project}.feature4`)
-  ];
-};
-
-const portfolioItems = [
+const projects = [
   {
-    title: 'PecFort',
-    description: t('portfolio.pecfort.description'),
+    id: 'pecfort',
     image: '/images/portfolio/pecfort.png',
     url: 'https://pecfort.com.br',
-    features: getFeatures('pecfort')
+    description: t('portfolio.pecfort.description'),
+    features: [
+      t('portfolio.pecfort.feature1'),
+      t('portfolio.pecfort.feature2'),
+      t('portfolio.pecfort.feature3'),
+      t('portfolio.pecfort.feature4')
+    ]
   },
   {
-    title: 'Oxxen',
-    description: t('portfolio.oxxen.description'),
+    id: 'oxxen',
     image: '/images/portfolio/oxxen.png',
     url: 'https://oxxen.com.br',
-    features: getFeatures('oxxen')
+    description: t('portfolio.oxxen.description'),
+    features: [
+      t('portfolio.oxxen.feature1'),
+      t('portfolio.oxxen.feature2'),
+      t('portfolio.oxxen.feature3'),
+      t('portfolio.oxxen.feature4')
+    ]
   },
   {
+    id: 'noktech_deploy',
     title: t('portfolio.noktech_deploy.title'),
-    description: t('portfolio.noktech_deploy.description'),
     image: '/images/portfolio/noktech-deploy.webp',
-    githubUrl: 'https://github.com/Br3n0k/noktech-deploy',
-    features: getFeatures('noktech_deploy'),
-    isGithubProject: true
+    url: 'https://github.com/Br3n0k/noktech-deploy',
+    description: t('portfolio.noktech_deploy.description'),
+    features: [
+      t('portfolio.noktech_deploy.feature1'),
+      t('portfolio.noktech_deploy.feature2'),
+      t('portfolio.noktech_deploy.feature3'),
+      t('portfolio.noktech_deploy.feature4')
+    ]
   },
   {
+    id: 'noktech_theliarcrow',
     title: t('portfolio.noktech_theliarcrow.title'),
-    description: t('portfolio.noktech_theliarcrow.description'),
     image: '/images/portfolio/noktech-llm.webp',
-    githubUrl: 'https://github.com/Br3n0k/noktech-theliarcrow',
-    features: getFeatures('noktech_theliarcrow'),
-    isGithubProject: true
+    url: 'https://github.com/Br3n0k/noktech-theliarcrow',
+    description: t('portfolio.noktech_theliarcrow.description'),
+    features: [
+      t('portfolio.noktech_theliarcrow.feature1'),
+      t('portfolio.noktech_theliarcrow.feature2'),
+      t('portfolio.noktech_theliarcrow.feature3'),
+      t('portfolio.noktech_theliarcrow.feature4')
+    ]
   }
 ];
 ---
 
-<section id="portfolio" class="relative py-20 overflow-hidden">
+<section id="portfolio" class="relative py-20 overflow-hidden bg-gradient-to-b from-dark to-dark-lighter">
   <!-- Grid Pattern Background -->
   <div class="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
 
   <!-- Gradient Orbs -->
-  <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary/30 rounded-full filter blur-3xl opacity-20"></div>
-  <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/30 rounded-full filter blur-3xl opacity-20"></div>
+  <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary/30 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+  <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/30 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
 
   <div class="container mx-auto px-4 relative z-10">
-    <div class="text-center mb-12">
-      <span class="text-primary font-medium">{t('portfolio.label')}</span>
-      <h2 class="text-4xl font-bold mt-2">{t('portfolio.heading')}</h2>
-      <p class="text-gray-400 mt-4 max-w-2xl mx-auto">{t('portfolio.subheading')}</p>
+    <div class="text-center mb-16">
+      <span class="text-primary font-medium inline-block px-4 py-1 rounded-full bg-primary/10 mb-4">{t('portfolio.label')}</span>
+      <h2 class="text-5xl font-bold mt-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">{t('portfolio.heading')}</h2>
+      <p class="text-gray-400 mt-6 max-w-3xl mx-auto text-lg">{t('portfolio.subheading')}</p>
     </div>
 
-    <div class="space-y-24">
-      {portfolioItems.map((item, index) => (
-        <div class={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}>
+    <div class="grid grid-cols-1 gap-16">
+      {projects.map((project, index) => (
+        <div class={`flex flex-col lg:flex-row gap-8 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+          <!-- Imagem do Projeto -->
           <div class="lg:w-1/2">
-            <div class="portfolio-image-wrapper">
-              <img
-                src={item.image}
-                alt={item.title}
-                class="portfolio-image"
-                loading="lazy"
+            <div class="group relative overflow-hidden rounded-3xl">
+              <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <img 
+                src={project.image} 
+                alt={project.title || project.id}
+                class="w-full h-auto rounded-3xl transform group-hover:scale-105 transition-transform duration-500"
               />
-              <div class="portfolio-overlay">
-                {item.isGithubProject && (
-                  <div class="absolute top-4 right-4">
-                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                  </div>
-                )}
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <a 
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-primary/90 hover:bg-primary text-white px-6 py-3 rounded-full font-medium transform hover:scale-105 transition-all duration-300"
+                >
+                  {t('portfolio.visitSite')}
+                </a>
               </div>
             </div>
           </div>
 
-          <div class="lg:w-1/2 space-y-6">
-            <h3 class="text-2xl font-bold">{item.title}</h3>
-            <p class="text-gray-400">{item.description}</p>
+          <!-- Detalhes do Projeto -->
+          <div class="lg:w-1/2 flex flex-col justify-center">
+            <div class="relative">
+              <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/40 rounded-3xl blur-lg opacity-40"></div>
+              <div class="relative bg-dark-lighter/50 backdrop-blur-lg p-8 rounded-2xl border border-primary/20">
+                <h3 class="text-2xl font-bold mb-4 text-primary">{project.title || project.id}</h3>
+                <p class="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+                
+                <div class="space-y-4">
+                  {project.features.map((feature) => (
+                    <div class="flex items-start space-x-3">
+                      <div class="w-6 h-6 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <span class="text-gray-300 leading-relaxed">{feature}</span>
+                    </div>
+                  ))}
+                </div>
 
-            <ul class="space-y-3">
-              {item.features.map((feature: string) => (
-                <li class="flex items-center space-x-3">
-                  <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span class="text-gray-300">{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            {item.url ? (
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-block bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,0,0,0.3)]"
-              >
-                {t('portfolio.visitSite')}
-              </a>
-            ) : (
-              <a
-                href={item.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-block bg-dark hover:bg-primary text-white px-6 py-3 rounded-lg transition-all duration-300"
-              >
-                {t('portfolio.viewCode')}
-              </a>
-            )}
+                <div class="mt-8">
+                  <a 
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors"
+                  >
+                    <span>{t('portfolio.visitSite')}</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       ))}
@@ -128,112 +143,16 @@ const portfolioItems = [
 </section>
 
 <style>
-  .portfolio {
-    padding: 6rem 2rem;
-    background-color: white;
+  .animate-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-    color: var(--color-text);
-  }
-
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-  }
-
-  .portfolio-item {
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background: white;
-    transition: transform 0.3s ease;
-  }
-
-  .portfolio-item:hover {
-    transform: translateY(-5px);
-  }
-
-  .portfolio-content {
-    padding: 2rem;
-  }
-
-  .portfolio-content h3 {
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-  }
-
-  .portfolio-content p {
-    color: var(--color-text);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .tag {
-    background-color: var(--color-accent);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-    font-size: 0.875rem;
-  }
-
-  .btn-view {
-    display: inline-block;
-    background-color: var(--color-primary);
-    color: white;
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn-view:hover {
-    background-color: var(--color-secondary);
-  }
-
-  @media (max-width: 768px) {
-    .portfolio-grid {
-      grid-template-columns: 1fr;
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.2;
     }
-  }
-
-  .portfolio-image {
-    @apply w-full h-auto rounded-2xl shadow-2xl border border-dark-border transition-all duration-500;
-    filter: grayscale(100%);
-    transform: scale(1);
-  }
-
-  .portfolio-image-wrapper {
-    @apply relative overflow-hidden rounded-2xl;
-  }
-
-  .portfolio-image-wrapper:hover .portfolio-image {
-    filter: grayscale(0%);
-    transform: scale(1.05);
-  }
-
-  .portfolio-overlay {
-    @apply absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-0 transition-opacity duration-500;
-  }
-
-  .portfolio-image-wrapper:hover .portfolio-overlay {
-    @apply opacity-100;
+    50% {
+      opacity: 0.3;
+    }
   }
 </style> 

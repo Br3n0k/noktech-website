@@ -8,14 +8,19 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap(),
-    compress()
+    compress({
+      CSS: true,
+      HTML: true,
+      Image: true,
+      SVG: true,
+    })
   ],
   build: {
-    assets: '_assets'
+    assets: 'assets'
   },
-  image: {
-    service: {
-      entrypoint: 'astro/assets/services/sharp'
+  vite: {
+    build: {
+      assetsInlineLimit: 0
     }
   }
 }); 

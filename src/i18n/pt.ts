@@ -23,15 +23,15 @@ export const pt = {
     },
     "stats": {
       "clients": {
-        "value": "6",
+        "value": "13",
         "label": "Clientes Satisfeitos"
       },
       "projects": {
-        "value": "13",
+        "value": "18",
         "label": "Projetos Entregues"
       },
       "years": {
-        "value": "8",
+        "value": "+10",
         "label": "Anos de Experiência"
       },
       "satisfaction": {
@@ -52,7 +52,48 @@ export const pt = {
         "E-commerce",
         "Sistemas web",
         "Landing pages"
-      ]
+      ],
+      "details": {
+        "title": "Desenvolvimento Web Profissional",
+        "description": "Desenvolvemos soluções web completas, desde sites institucionais até sistemas complexos, sempre focando em performance, usabilidade e design moderno. Utilizamos as mais recentes tecnologias e frameworks para garantir que sua presença online seja não apenas bonita, mas também funcional e eficiente.",
+        "benefits": [
+          "Design responsivo e moderno",
+          "Performance otimizada",
+          "SEO amigável",
+          "Integração com redes sociais",
+          "Painel administrativo intuitivo",
+          "Suporte técnico especializado"
+        ],
+        "features": {
+          "frontend": {
+            "title": "Frontend Moderno",
+            "items": [
+              "Interfaces responsivas",
+              "Animações suaves",
+              "Otimização de performance",
+              "Design system consistente"
+            ]
+          },
+          "backend": {
+            "title": "Backend Robusto",
+            "items": [
+              "APIs RESTful",
+              "Banco de dados otimizado",
+              "Cache inteligente",
+              "Segurança avançada"
+            ]
+          },
+          "design": {
+            "title": "Design UX/UI",
+            "items": [
+              "Design system personalizado",
+              "Prototipagem interativa",
+              "Testes de usabilidade",
+              "Acessibilidade WCAG"
+            ]
+          }
+        }
+      }
     },
     "api": {
       "title": "APIs RESTful",
@@ -113,7 +154,48 @@ export const pt = {
         "Sistemas de gestão",
         "Integrações de sistemas",
         "APIs e microsserviços"
-      ]
+      ],
+      "details": {
+        "title": "Software Sob Medida para Seu Negócio",
+        "description": "Desenvolvemos soluções de software personalizadas que atendem exatamente às necessidades do seu negócio. Nossa abordagem combina expertise técnica com entendimento profundo dos processos de negócio, resultando em sistemas eficientes e escaláveis que impulsionam a produtividade e reduzem custos.",
+        "benefits": [
+          "Solução 100% personalizada",
+          "Integração com sistemas existentes",
+          "Escalabilidade garantida",
+          "Suporte técnico dedicado",
+          "Documentação completa",
+          "Treinamento da equipe"
+        ],
+        "features": {
+          "development": {
+            "title": "Desenvolvimento",
+            "items": [
+              "Arquitetura escalável",
+              "Código limpo e testável",
+              "Versionamento seguro",
+              "CI/CD automatizado"
+            ]
+          },
+          "quality": {
+            "title": "Qualidade",
+            "items": [
+              "Testes automatizados",
+              "Code review rigoroso",
+              "Monitoramento contínuo",
+              "Métricas de qualidade"
+            ]
+          },
+          "maintenance": {
+            "title": "Manutenção",
+            "items": [
+              "Atualizações regulares",
+              "Backup automático",
+              "Monitoramento 24/7",
+              "Suporte prioritário"
+            ]
+          }
+        }
+      }
     },
     "ai": {
       "title": "Inteligência Artificial",
@@ -145,7 +227,48 @@ export const pt = {
         "Arquitetura de software",
         "Segurança da informação",
         "Transformação digital"
-      ]
+      ],
+      "details": {
+        "title": "Consultoria Estratégica em TI",
+        "description": "Nossa consultoria em TI oferece orientação especializada para ajudar sua empresa a tomar as melhores decisões tecnológicas. Analisamos seus processos atuais, identificamos oportunidades de melhoria e desenvolvemos um plano estratégico para implementar as soluções mais adequadas ao seu negócio.",
+        "benefits": [
+          "Redução de custos operacionais",
+          "Otimização de processos",
+          "Maior segurança da informação",
+          "Decisões baseadas em dados",
+          "Roadmap tecnológico claro",
+          "Transferência de conhecimento"
+        ],
+        "features": {
+          "analysis": {
+            "title": "Análise",
+            "items": [
+              "Diagnóstico técnico",
+              "Análise de processos",
+              "Avaliação de riscos",
+              "Identificação de gaps"
+            ]
+          },
+          "strategy": {
+            "title": "Estratégia",
+            "items": [
+              "Planejamento tecnológico",
+              "Roadmap de inovação",
+              "Gestão de mudanças",
+              "KPIs e métricas"
+            ]
+          },
+          "support": {
+            "title": "Suporte",
+            "items": [
+              "Mentoria técnica",
+              "Treinamento de equipe",
+              "Documentação de processos",
+              "Suporte contínuo"
+            ]
+          }
+        }
+      }
     },
     "cta": "Saiba mais"
   },
@@ -157,41 +280,33 @@ export const pt = {
     "viewCode": "Ver código",
     "pecfort": {
       "description": "E-commerce especializado em produtos agropecuários",
-      "features": [
-        "Plataforma de e-commerce completa",
-        "Sistema de gestão de pedidos",
-        "Integração com fornecedores",
-        "Painel administrativo personalizado"
-      ]
+      "feature1": "Plataforma de e-commerce completa",
+      "feature2": "Sistema de gestão de pedidos",
+      "feature3": "Integração com fornecedores",
+      "feature4": "Painel administrativo personalizado"
     },
     "oxxen": {
       "description": "Marketplace de certificação digital",
-      "features": [
-        "Sistema de agendamento online",
-        "Integração com certificadoras",
-        "Gestão de validadores",
-        "Dashboard analítico"
-      ]
+      "feature1": "Sistema de agendamento online",
+      "feature2": "Integração com certificadoras",
+      "feature3": "Gestão de validadores",
+      "feature4": "Dashboard analítico"
     },
     "noktech_deploy": {
       "title": "NokTech Deploy",
       "description": "Cliente de deploy avançado e flexível com suporte a múltiplos protocolos",
-      "features": [
-        "Suporte a SSH/SFTP, FTP e Local",
-        "Monitoramento em tempo real",
-        "CLI interativa e amigável",
-        "Logs detalhados e versionamento"
-      ]
+      "feature1": "Suporte a SSH/SFTP, FTP e Local",
+      "feature2": "Monitoramento em tempo real",
+      "feature3": "CLI interativa e amigável",
+      "feature4": "Logs detalhados e versionamento"
     },
     "noktech_theliarcrow": {
       "title": "NokTech TheLiarCrow",
       "description": "Modelo de treinamento de LLM para assistente pessoal",
-      "features": [
-        "Processamento de linguagem natural",
-        "Treinamento personalizado",
-        "Integração com Python",
-        "Análise de dados avançada"
-      ]
+      "feature1": "Processamento de linguagem natural",
+      "feature2": "Treinamento personalizado",
+      "feature3": "Integração com Python",
+      "feature4": "Análise de dados avançada"
     }
   },
   "contact": {
@@ -243,6 +358,32 @@ export const pt = {
     "heading": "Quem Somos",
     "subheading": "Excelência e inovação em cada linha de código",
     "description": "A NokTech é uma software house boutique, fundada por Brendown Ferreira, que desde 2015 tem se destacado no mercado por sua abordagem única no desenvolvimento de software. Nossa filosofia é clara: preferimos fazer menos, mas fazer extraordinariamente bem. Somos uma equipe enxuta e altamente especializada, o que nos permite manter um controle excepcional sobre a qualidade de cada projeto que assumimos. Não buscamos ser a maior empresa, mas sim a mais confiável em nosso segmento. Nossa metodologia combina as melhores práticas de desenvolvimento com um atendimento verdadeiramente personalizado, onde cada cliente recebe atenção dedicada e soluções sob medida para seus desafios específicos.",
+    "mission": "Nossa missão é desenvolver soluções tecnológicas inovadoras e de alta qualidade, que realmente façam a diferença para nossos clientes. Buscamos não apenas atender expectativas, mas superá-las, através de um trabalho meticuloso e comprometido com a excelência.",
+    "approach": {
+      "title": "Nossa Abordagem",
+      "description": "Adotamos uma metodologia ágil adaptativa, que combina as melhores práticas de desenvolvimento com processos personalizados para cada projeto. Nosso foco está em entregar valor real através de soluções tecnológicas que realmente resolvem problemas."
+    },
+    "values": {
+      "title": "Nossos Valores",
+      "items": [
+        {
+          "title": "Excelência",
+          "description": "Comprometimento com a qualidade em cada linha de código"
+        },
+        {
+          "title": "Inovação",
+          "description": "Busca constante por soluções criativas e eficientes"
+        },
+        {
+          "title": "Transparência",
+          "description": "Comunicação clara e honesta em todas as interações"
+        },
+        {
+          "title": "Responsabilidade",
+          "description": "Compromisso com prazos e resultados acordados"
+        }
+      ]
+    },
     "expertise": {
       "title": "Áreas de Expertise",
       "items": [
@@ -256,39 +397,13 @@ export const pt = {
         },
         {
           "title": "Infraestrutura & DevOps",
-          "description": "Gestão de redes, infraestrutura de servidores e banco de dados"
+          "description": "Expertise em AWS, Docker, CI/CD, e práticas modernas de DevOps"
         },
         {
-          "title": "Análise de Dados",
-          "description": "Expertise em análise e processamento de dados para tomada de decisões"
+          "title": "Inteligência Artificial",
+          "description": "Desenvolvimento e integração de soluções com IA e Machine Learning"
         }
       ]
-    },
-    "values": {
-      "title": "Nossos Valores",
-      "items": [
-        {
-          "title": "Qualidade Intransigente",
-          "description": "Cada linha de código passa por rigorosos padrões de qualidade. Não fazemos concessões quando se trata de excelência técnica."
-        },
-        {
-          "title": "Transparência Total",
-          "description": "Mantemos uma comunicação clara e direta com nossos clientes, compartilhando progresso, desafios e soluções em tempo real."
-        },
-        {
-          "title": "Compromisso com Resultados",
-          "description": "Focamos em entregar valor real e mensurável, alinhando nossas soluções aos objetivos estratégicos de nossos clientes."
-        },
-        {
-          "title": "Evolução Constante",
-          "description": "Investimos continuamente em pesquisa e desenvolvimento, mantendo-nos na vanguarda das tecnologias emergentes."
-        }
-      ]
-    },
-    "mission": "Nossa missão é desenvolver soluções tecnológicas excepcionais que não apenas atendam às necessidades atuais de nossos clientes, mas também estabeleçam bases sólidas para seu crescimento futuro. Acreditamos que software bem construído é um investimento estratégico, e nosso compromisso é garantir que cada projeto seja desenvolvido com a excelência técnica e atenção aos detalhes que se tornaram nossa marca registrada.",
-    "approach": {
-      "title": "Nossa Abordagem",
-      "description": "Adotamos uma metodologia que combina agilidade com precisão. Cada projeto é tratado como único, recebendo atenção personalizada e um plano de desenvolvimento sob medida. Nossa equipe enxuta nos permite manter um controle excepcional sobre a qualidade, enquanto nossa experiência diversificada nos capacita a enfrentar desafios complexos com soluções inovadoras e eficientes."
     }
   }
 }; 

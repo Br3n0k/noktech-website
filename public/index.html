@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NokTech - Redirecionando...</title>
+  <script>
+    (function() {
+      var userLang = navigator.language || navigator.userLanguage;
+      userLang = userLang.toLowerCase().substring(0, 2);
+      
+      var supportedLangs = ['pt', 'en', 'es'];
+      var targetLang = supportedLangs.includes(userLang) ? userLang : 'pt';
+      
+      window.location.replace('/' + targetLang + '/');
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=/pt/">
+  </noscript>
+</head>
+<body>
+</body>
+</html> 
