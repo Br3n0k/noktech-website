@@ -1,0 +1,94 @@
+---
+import { getLanguageFromURL, useTranslations } from '../i18n/utils';
+
+const currentPath = Astro.url.pathname;
+const lang = getLanguageFromURL(currentPath);
+const t = useTranslations(lang);
+
+const services = [
+  {
+    icon: '/images/icons/web-dev.svg',
+    title: t('services.web.title'),
+    description: t('services.web.description'),
+    features: [t('services.web.features.0'), t('services.web.features.1'), t('services.web.features.2')]
+  },
+  {
+    icon: '/images/icons/software.svg',
+    title: t('services.software.title'),
+    description: t('services.software.description'),
+    features: [t('services.software.features.0'), t('services.software.features.1'), t('services.software.features.2')]
+  },
+  {
+    icon: '/images/icons/consulting.svg',
+    title: t('services.consulting.title'),
+    description: t('services.consulting.description'),
+    features: [t('services.consulting.features.0'), t('services.consulting.features.1'), t('services.consulting.features.2')]
+  }
+];
+---
+
+<section id="services" class="relative py-24 bg-dark-light overflow-hidden">
+  <!-- Grid Pattern Background -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+
+  <!-- Gradient Orb -->
+  <div class="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
+          {t('services.heading')}
+        </span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        {t('services.subheading')}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="group relative p-8 rounded-2xl bg-dark-card border border-dark-border hover:border-primary/50 transition-all duration-300">
+          <!-- Card Glow Effect -->
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10">
+            <!-- Icon -->
+            <div class="w-14 h-14 mb-6 rounded-xl bg-dark-lighter border border-dark-border flex items-center justify-center">
+              <img 
+                src={service.icon} 
+                alt={service.title}
+                class="w-8 h-8 text-primary"
+                width="32"
+                height="32"
+              />
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-4">{service.title}</h3>
+            <p class="text-gray-400 mb-6">{service.description}</p>
+
+            <ul class="space-y-3">
+              {service.features.map((feature) => (
+                <li class="flex items-center text-gray-300">
+                  <svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-8">
+              <a href="#contact" class="inline-flex items-center text-primary hover:text-primary-light transition-colors">
+                <span class="font-medium">{t('services.cta')}</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 

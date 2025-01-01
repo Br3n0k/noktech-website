@@ -1,0 +1,211 @@
+---
+import { getLanguageFromURL, useTranslations } from '../i18n/utils';
+
+const currentPath = Astro.url.pathname;
+const lang = getLanguageFromURL(currentPath);
+const t = useTranslations(lang);
+
+const portfolioItems = [
+  {
+    title: 'Oxxen',
+    description: t('portfolio.oxxen.description'),
+    image: '/images/portfolio/oxxen.jpg',
+    url: 'https://oxxen.com.br',
+    tags: [
+      t('portfolio.tags.web'),
+      t('portfolio.tags.software'),
+      t('portfolio.tags.infrastructure')
+    ],
+    features: [
+      t('portfolio.oxxen.features.0'),
+      t('portfolio.oxxen.features.1'),
+      t('portfolio.oxxen.features.2')
+    ]
+  },
+  {
+    title: 'PecFort',
+    description: t('portfolio.pecfort.description'),
+    image: '/images/portfolio/pecfort.jpg',
+    url: 'https://pecfort.com.br',
+    tags: [
+      t('portfolio.tags.ecommerce'),
+      t('portfolio.tags.software'),
+      t('portfolio.tags.web')
+    ],
+    features: [
+      t('portfolio.pecfort.features.0'),
+      t('portfolio.pecfort.features.1'),
+      t('portfolio.pecfort.features.2')
+    ]
+  }
+];
+---
+
+<section id="portfolio" class="relative py-24 bg-dark overflow-hidden">
+  <!-- Grid Pattern Background -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+
+  <!-- Gradient Orbs -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full filter blur-[100px]"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full filter blur-[100px]"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center mb-16">
+      <span class="px-3 py-1 text-sm font-medium bg-dark-lighter text-primary rounded-full border border-dark-border inline-block mb-4">
+        {t('portfolio.label')}
+      </span>
+      <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">
+        {t('portfolio.heading')}
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        {t('portfolio.subheading')}
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+      {portfolioItems.map((item) => (
+        <div class="group relative">
+          <div class="relative rounded-2xl bg-dark-card border border-dark-border overflow-hidden">
+            <!-- Imagem do Projeto -->
+            <div class="relative h-64 overflow-hidden">
+              <img 
+                src={item.image} 
+                alt={`${item.title} Screenshot`}
+                class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60"></div>
+            </div>
+
+            <!-- Card Glow Effect -->
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            <div class="p-8 relative z-10">
+              <h3 class="text-2xl font-bold text-white mb-4">{item.title}</h3>
+              
+              <div class="flex flex-wrap gap-2 mb-4">
+                {item.tags.map((tag) => (
+                  <span class="px-3 py-1 text-sm bg-dark-lighter text-primary rounded-full border border-dark-border">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <p class="text-gray-400 mb-6">{item.description}</p>
+
+              <ul class="space-y-3 mb-8">
+                {item.features.map((feature) => (
+                  <li class="flex items-center text-gray-300">
+                    <svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <a 
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center text-primary hover:text-primary-light transition-colors"
+              >
+                <span class="font-medium">{t('portfolio.cta')}</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio {
+    padding: 6rem 2rem;
+    background-color: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--color-text);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .portfolio-item {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: white;
+    transition: transform 0.3s ease;
+  }
+
+  .portfolio-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .portfolio-content {
+    padding: 2rem;
+  }
+
+  .portfolio-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .portfolio-content p {
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    background-color: var(--color-accent);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-view {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-view:hover {
+    background-color: var(--color-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style> 

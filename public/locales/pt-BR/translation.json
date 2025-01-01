@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "services": "Serviços",
+    "portfolio": "Portfólio",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Transformando Ideias em ",
+    "titleHighlight": "Realidade Digital",
+    "subtitle": "Desenvolvemos soluções tecnológicas inovadoras que impulsionam o crescimento do seu negócio",
+    "cta": {
+      "contact": "Iniciar Projeto",
+      "portfolio": "Ver Projetos"
+    },
+    "stats": {
+      "years": "Anos de Experiência",
+      "projects": "Projetos Entregues",
+      "satisfaction": "Satisfação"
+    }
+  },
+  "services": {
+    "heading": "Nossas Soluções",
+    "subheading": "Oferecemos um conjunto completo de serviços para transformar sua visão em realidade",
+    "cta": "Saiba mais"
+  },
+  "portfolio": {
+    "label": "Cases de Sucesso",
+    "heading": "Nossos Projetos",
+    "subheading": "Conheça alguns dos projetos que desenvolvemos e as tecnologias que utilizamos",
+    "cta": "Visitar Site",
+    "tags": {
+      "web": "Desenvolvimento Web",
+      "software": "Software",
+      "infrastructure": "Infraestrutura",
+      "ecommerce": "E-commerce"
+    },
+    "oxxen": {
+      "description": "Desenvolvimento completo da tecnologia da empresa, incluindo websites e software de gestão interno com rastreamento animal integrado ao SISBOV.",
+      "features": [
+        "Sistema de rastreamento animal",
+        "Integração com SISBOV",
+        "Infraestrutura de rede e servidores",
+        "Software de gestão empresarial"
+      ]
+    },
+    "pecfort": {
+      "description": "Desenvolvimento do website, e-commerce e software de gestão web para empresa especializada em identificadores animais.",
+      "features": [
+        "E-commerce completo",
+        "Sistema de gestão de pedidos",
+        "Integração com ERP",
+        "Painel administrativo personalizado"
+      ]
+    }
+  },
+  "contact": {
+    "label": "Contato",
+    "heading": "Vamos Conversar?",
+    "subheading": "Entre em contato conosco e descubra como podemos ajudar seu negócio",
+    "info": {
+      "title": "Informações de Contato",
+      "email": {
+        "label": "E-mail"
+      },
+      "whatsapp": {
+        "label": "WhatsApp"
+      },
+      "location": {
+        "label": "Localização"
+      }
+    },
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "Digite seu nome",
+      "email": "E-mail",
+      "emailPlaceholder": "Digite seu e-mail",
+      "message": "Mensagem",
+      "messagePlaceholder": "Como podemos ajudar?",
+      "submit": "Enviar Mensagem"
+    }
+  }
+} 

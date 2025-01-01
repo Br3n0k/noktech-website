@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Transforming Ideas into ",
+    "titleHighlight": "Digital Reality",
+    "subtitle": "We develop innovative technological solutions that drive your business growth",
+    "cta": {
+      "contact": "Start Project",
+      "portfolio": "View Projects"
+    },
+    "stats": {
+      "years": "Years of Experience",
+      "projects": "Projects Delivered",
+      "satisfaction": "Satisfaction"
+    }
+  },
+  "services": {
+    "heading": "Our Solutions",
+    "subheading": "We offer a complete suite of services to transform your vision into reality",
+    "cta": "Learn more"
+  },
+  "portfolio": {
+    "label": "Success Cases",
+    "heading": "Our Projects",
+    "subheading": "Discover some of the projects we've developed and the technologies we use",
+    "cta": "Visit Website",
+    "tags": {
+      "web": "Web Development",
+      "software": "Software",
+      "infrastructure": "Infrastructure",
+      "ecommerce": "E-commerce"
+    },
+    "oxxen": {
+      "description": "Complete technology development for the company, including websites and internal management software with SISBOV-integrated animal tracking.",
+      "features": [
+        "Animal tracking system",
+        "SISBOV integration",
+        "Network and server infrastructure",
+        "Business management software"
+      ]
+    },
+    "pecfort": {
+      "description": "Development of website, e-commerce and web management software for a company specialized in animal identifiers.",
+      "features": [
+        "Complete e-commerce",
+        "Order management system",
+        "ERP integration",
+        "Custom admin panel"
+      ]
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "heading": "Let's Talk?",
+    "subheading": "Get in touch with us and discover how we can help your business",
+    "info": {
+      "title": "Contact Information",
+      "email": {
+        "label": "Email"
+      },
+      "whatsapp": {
+        "label": "WhatsApp"
+      },
+      "location": {
+        "label": "Location"
+      }
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "message": "Message",
+      "messagePlaceholder": "How can we help?",
+      "submit": "Send Message"
+    }
+  }
+} 
