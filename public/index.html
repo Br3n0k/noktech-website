@@ -9,15 +9,20 @@
       userLang = userLang.toLowerCase().substring(0, 2);
       
       var supportedLangs = ['pt', 'en', 'es'];
-      var targetLang = supportedLangs.includes(userLang) ? userLang : 'pt';
+      var defaultLang = 'en';
+      
+      var targetLang = supportedLangs.includes(userLang) ? userLang : defaultLang;
       
       window.location.replace('/' + targetLang + '/');
     })();
   </script>
   <noscript>
-    <meta http-equiv="refresh" content="0;url=/pt/">
+    <meta http-equiv="refresh" content="0;url=/en/">
   </noscript>
 </head>
 <body>
+  <p style="text-align: center; font-family: sans-serif; color: #666;">
+    Redirecting to the appropriate language version...
+  </p>
 </body>
 </html> 
