@@ -22,13 +22,81 @@ const expertise = t('about.expertise.items');
     <div class="text-center mb-16">
       <span class="text-primary font-medium inline-block px-4 py-1 rounded-full bg-primary/10 mb-4">{t('about.label')}</span>
       <h2 class="text-5xl font-bold mt-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">{t('about.heading')}</h2>
-      <p class="text-gray-400 mt-6 max-w-3xl mx-auto text-lg">{t('about.subheading')}</p>
     </div>
 
-    <!-- Descrição Principal -->
-    <div class="max-w-4xl mx-auto mb-20">
-      <div class="bg-dark-lighter/50 backdrop-blur-lg p-8 rounded-3xl border border-dark-border shadow-xl hover:border-primary/30 transition-all duration-300">
-        <p class="text-gray-300 leading-relaxed text-lg">{t('about.description')}</p>
+    <!-- História da NokTech -->
+    <div class="max-w-5xl mx-auto mb-24">
+      <div class="relative">
+        <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/40 rounded-3xl blur-lg opacity-50"></div>
+        <div class="relative bg-dark-lighter/50 backdrop-blur-lg p-12 rounded-2xl border border-primary/20">
+          <!-- Logo e Ano -->
+          <div class="flex items-center justify-center mb-8">
+            <div class="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mr-6">
+              <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+              </svg>
+            </div>
+            <div class="text-center">
+              <h3 class="text-4xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent tracking-wider">NOK<span class="text-primary">TECH</span></h3>
+              <span class="text-gray-400">Desde 2015</span>
+            </div>
+          </div>
+
+          <!-- Texto Principal -->
+          <div class="space-y-8">
+            <div class="relative">
+              <div class="flex items-start space-x-6">
+                <div class="w-1.5 h-1.5 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                  A <span class="text-primary font-semibold">NokTech</span> é uma software house boutique, fundada por <span class="text-white font-medium">Brendown Ferreira</span>, que desde 2015 tem se destacado no mercado por sua abordagem única no desenvolvimento de software.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="flex items-start space-x-6">
+                <div class="w-1.5 h-1.5 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                  Nossa filosofia é clara: <span class="text-white font-medium">preferimos fazer menos, mas fazer extraordinariamente bem</span>. Somos uma equipe enxuta e altamente especializada, o que nos permite manter um controle excepcional sobre a qualidade de cada projeto que assumimos.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="flex items-start space-x-6">
+                <div class="w-1.5 h-1.5 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                  Não buscamos ser a maior empresa, mas sim a <span class="text-white font-medium">mais confiável em nosso segmento</span>. Nossa metodologia combina as melhores práticas de desenvolvimento com um atendimento verdadeiramente personalizado.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="flex items-start space-x-6">
+                <div class="w-1.5 h-1.5 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                  Cada cliente recebe <span class="text-white font-medium">atenção dedicada</span> e <span class="text-white font-medium">soluções sob medida</span> para seus desafios específicos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Estatísticas -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-12 border-t border-dark-border">
+            <div class="text-center">
+              <div class="text-4xl font-bold text-primary mb-2">+8</div>
+              <div class="text-gray-400">Anos de Experiência</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-primary mb-2">100%</div>
+              <div class="text-gray-400">Satisfação dos Clientes</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-primary mb-2">+50</div>
+              <div class="text-gray-400">Projetos Entregues</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

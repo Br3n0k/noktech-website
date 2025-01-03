@@ -1,69 +1,38 @@
 ---
-import '../styles/global.css';
+import { getLanguageFromURL } from '../i18n/utils';
+import SEO from '../components/SEO.astro';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedDate?: string;
 }
 
-const { 
-  title, 
-  description = "NokTech - Desenvolvimento de software e consultoria em TI. Soluções tecnológicas inovadoras para impulsionar seu negócio."
-} = Astro.props;
+const currentPath = Astro.url.pathname;
+const lang = getLanguageFromURL(currentPath);
 
-// Importa a fonte diretamente
-import interVarFont from '/fonts/inter-var.woff2';
+const {
+  title,
+  description,
+  image,
+  type = 'website',
+  publishedDate,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-
-    <!-- Favicons e Ícones -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
-    <link rel="manifest" href="/images/icons/manifest.json">
-    <meta name="msapplication-TileColor" content="#000000">
-    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
-    <meta name="theme-color" content="#000000">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://noktech.com.br/" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://noktech.com.br/og-image.jpg" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://noktech.com.br/" />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="https://noktech.com.br/og-image.jpg" />
-
-    <!-- Preload Fonts -->
-    <link 
-      rel="preload" 
-      href={interVarFont}
-      as="font" 
-      type="font/woff2" 
-      crossorigin 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      type={type}
+      publishedDate={publishedDate}
     />
   </head>
   <body class="bg-dark text-white">
@@ -73,17 +42,24 @@ import interVarFont from '/fonts/inter-var.woff2';
 
 <style is:global>
   @font-face {
-    font-family: 'Inter var';
+    font-family: 'Inter';
+    font-style: normal;
     font-weight: 100 900;
     font-display: swap;
-    font-style: normal;
-    font-named-instance: 'Regular';
     src: url('/fonts/inter-var.woff2') format('woff2');
   }
 
-  body {
-    font-family: 'Inter var', system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
   }
 </style> 

@@ -1,0 +1,106 @@
+---
+import { getLanguageFromURL, useTranslations } from '../i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website' | 'article';
+  publishedDate?: string;
+}
+
+const currentPath = Astro.url.pathname;
+const lang = getLanguageFromURL(currentPath);
+const t = useTranslations(lang);
+
+const {
+  title = t('site.title'),
+  description = t('site.description'),
+  image = '/images/logo_high.png',
+  canonicalURL = Astro.url.href,
+  type = 'website',
+  publishedDate,
+} = Astro.props;
+
+const siteURL = 'https://noktech.dev';
+const imageURL = image.startsWith('http') ? image : `${siteURL}${image}`;
+---
+
+<!-- SEO -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageURL} />
+<meta property="og:site_name" content="NokTech" />
+<meta property="og:locale" content={lang} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageURL} />
+
+<!-- Outras Meta Tags -->
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+{publishedDate && <meta name="article:published_time" content={publishedDate} />}
+
+<!-- Idiomas Alternativos -->
+<link rel="alternate" hreflang="pt" href={`${siteURL}/pt${currentPath}`} />
+<link rel="alternate" hreflang="en" href={`${siteURL}/en${currentPath}`} />
+<link rel="alternate" hreflang="es" href={`${siteURL}/es${currentPath}`} />
+<link rel="alternate" hreflang="x-default" href={`${siteURL}/pt${currentPath}`} />
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="msapplication-TileColor" content="#0f172a" />
+<meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png" />
+<meta name="theme-color" content="#0f172a" />
+
+<!-- Estrutura de Dados Schema.org -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NokTech",
+    "url": "https://noktech.dev",
+    "logo": "https://noktech.dev/images/logo_high.png",
+    "description": "Desenvolvimento de software personalizado e consultoria em TI para impulsionar seu negócio",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "BR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+5562991598979",
+      "contactType": "customer service",
+      "email": "br3n0k@gmail.com"
+    },
+    "sameAs": [
+      "https://linkedin.com/in/brendown-ferreira",
+      "https://www.instagram.com/nok.dev",
+      "https://github.com/br3n0k"
+    ]
+  }
+</script> 

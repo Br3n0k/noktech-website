@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://noktech.com.br/sitemap.xml 
+# Sitemap
+Sitemap: https://noktech.dev/sitemap.xml
+
+# Diretórios e arquivos específicos
+Disallow: /obrigado/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$ 
